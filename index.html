@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Petit Dog - Aviso de Chegada</title>
   <style>
     body {
@@ -62,11 +62,11 @@
   </style>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Dog_icon.png" alt="Logo Petit Dog">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Dog_icon.png" alt="Logo Petit Dog" />
   <h1>Petit Dog</h1>
   <form id="chegadaForm">
-    <input type="text" id="nomeTutor" placeholder="Seu nome" required>
-    <input type="text" id="nomeCao" placeholder="Nome do cãozinho" required>
+    <input type="text" id="nomeTutor" placeholder="Seu nome" required />
+    <input type="text" id="nomeCao" placeholder="Nome do cãozinho" required />
     <button type="submit">Cheguei!</button>
   </form>
   <div class="mensagem" id="mensagemConfirmacao"></div>
@@ -78,26 +78,11 @@
       const cao = document.getElementById('nomeCao').value;
       const mensagem = `Cheguei! Sou ${tutor}, tutor(a) do(a) ${cao}.`;
 
-      // Enviar via WhatsApp Web para 3 números (aberto no celular)
+      // Números de destino (os clientes NÃO verão isso)
       const numero1 = '5531997049481';
       const numero2 = '5531996319599';
       const numero3 = '5531999782817';
 
       const url1 = `https://wa.me/${numero1}?text=${encodeURIComponent(mensagem)}`;
       const url2 = `https://wa.me/${numero2}?text=${encodeURIComponent(mensagem)}`;
-      const url3 = `https://wa.me/${numero3}?text=${encodeURIComponent(mensagem)}`;
-
-      // Abrir os 3 em sequência
-      window.open(url1, '_blank');
-      setTimeout(() => window.open(url2, '_blank'), 1000);
-      setTimeout(() => window.open(url3, '_blank'), 2000);
-
-      // Confirmar ao usuário
-      document.getElementById('mensagemConfirmacao').innerText = 'Obrigado! Já vamos levar seu filho 💜';
-
-      // Resetar o formulário
-      document.getElementById('chegadaForm').reset();
-    });
-  </script>
-</body>
-</html>
+      const url3 = `https://wa.me/${numero3}?text=${encodeURI
