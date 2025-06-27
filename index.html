@@ -70,3 +70,25 @@
     <button type="submit">Cheguei!</button>
   </form>
   <div class="mensagem" id="mensagemConfirmacao"></div>
+
+  <script>
+    document.getElementById('chegadaForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const tutor = document.getElementById('nomeTutor').value;
+      const cao = document.getElementById('nomeCao').value;
+      const mensagem = `Cheguei! Sou ${tutor}, tutor(a) do(a) ${cao}.`;
+
+      // Número único de destino (cliente não verá esse número)
+      const numero = '5531971592465';
+
+      const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+      // Abre WhatsApp para o número com a mensagem
+      window.open(url, '_blank');
+
+      document.getElementById('mensagemConfirmacao').innerText = 'Obrigado! Já vamos levar seu filho 💜';
+      document.getElementById('chegadaForm').reset();
+    });
+  </script>
+</body>
+</html>
