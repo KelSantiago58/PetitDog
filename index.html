@@ -17,7 +17,7 @@
       padding: 20px;
     }
     img {
-      max-width: 150px;
+      max-width: 160px;
       margin-bottom: 20px;
     }
     h1 {
@@ -62,7 +62,7 @@
   </style>
 </head>
 <body>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/32/Dog_icon.png" alt="Logo Petit Dog" />
+  <img src="logo.png" alt="Logo Petit Dog" />
   <h1>Petit Dog</h1>
   <form id="chegadaForm">
     <input type="text" id="nomeTutor" placeholder="Seu nome" required />
@@ -74,20 +74,16 @@
   <script>
     document.getElementById('chegadaForm').addEventListener('submit', function(e) {
       e.preventDefault();
-      const tutor = document.getElementById('nomeTutor').value;
-      const cao = document.getElementById('nomeCao').value;
+      const tutor = document.getElementById('nomeTutor').value.trim();
+      const cao = document.getElementById('nomeCao').value.trim();
+      if (!tutor || !cao) {
+        alert('Por favor, preencha seu nome e o nome do cãozinho.');
+        return;
+      }
       const mensagem = `Cheguei! Sou ${tutor}, tutor(a) do(a) ${cao}.`;
-
-      // Número único de destino (cliente não verá esse número)
       const numero = '5531990819043';
-
       const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
-
-      // Abre WhatsApp para o número com a mensagem
-      window.open(url, '_blank');
-
-      document.getElementById('mensagemConfirmacao').innerText = 'Obrigado! Já vamos levar seu filho 💜';
-      document.getElementById('chegadaForm').reset();
+      window.location.href = url;
     });
   </script>
 </body>
